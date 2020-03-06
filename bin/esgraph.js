@@ -49,7 +49,7 @@ process.stdin.on('end', () => {
   }
 });
 
-exports.generateDotCode = (data) => {
+function generateDotCode(data) {
 	let source = data;
   // filter out hashbangs
   if (source.startsWith('#!')) {
@@ -89,6 +89,8 @@ exports.generateDotCode = (data) => {
 
   return results.join('\n')
 }
+
+module.exports = generateDotCode;
 
 function findFunctions(ast) {
   const functions = [];
